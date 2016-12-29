@@ -4,7 +4,8 @@
   "description": "A basic wrapper for the browser console.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress --hide-modules"
+    "build": "webpack --progress --hide-modules",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
