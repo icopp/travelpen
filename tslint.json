@@ -1,0 +1,9 @@
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "adjacent-overload-signatures": true,
+    "no-var-requires": true,
+    "prefer-for-of": true,
+    "jsdoc-format": true
+  }
+}

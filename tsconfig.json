@@ -1,0 +1,8 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es5",
+    "sourceMap": true
+  }
+}
