@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A basic wrapper for the browser console.",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "build": "webpack --progress --hide-modules",
     "prepublish": "npm run build"
