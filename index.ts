@@ -17,13 +17,13 @@ export class Travelpen {
     this._logCallback = callback || undefined
     limit = typeof limit === 'number' ? limit : this._logs.length
 
-    for (let i = Math.max(0, this._logs.length - limit), len = this._logs.length; i < len; i++) {
+    for (let i = Math.max(0, this._logs.length - limit); i < this._logs.length; i++) {
       this._logCallback.apply(this, this._logs[i])
     }
   }
 
   setLevel (level: number) {
-    this._logLevel = typeof level === 'number' ? level : 9;
+    this._logLevel = typeof level === 'number' ? level : 9
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -131,8 +131,10 @@ export class Travelpen {
       this._logCallback.apply(this, [1, ...Array.prototype.slice.call(arguments)])
     }
 
-    if ((this._logLevel >= 5 || this._logLevel <= -1) && console && console.log) {
-      console.log.apply(console, arguments)
+    if ((this._logLevel >= 5 || this._logLevel <= -1) && console) {
+      if (console.log) {
+        console.log.apply(console, arguments)
+      }
     }
   }
 
@@ -143,8 +145,12 @@ export class Travelpen {
       this._logCallback.apply(this, [2, ...Array.prototype.slice.call(arguments)])
     }
 
-    if ((this._logLevel >= 4 || this._logLevel <= -2) && console && console.debug) {
-      console.debug.apply(console, arguments)
+    if ((this._logLevel >= 4 || this._logLevel <= -2) && console) {
+      if (console.debug) {
+        console.debug.apply(console, arguments)
+      } else if (console.log) {
+        console.log.apply(console, arguments)
+      }
     }
   }
 
@@ -155,8 +161,12 @@ export class Travelpen {
       this._logCallback.apply(this, [3, ...Array.prototype.slice.call(arguments)])
     }
 
-    if ((this._logLevel >= 3 || this._logLevel <= -3) && console && console.info) {
-      console.info.apply(console, arguments)
+    if ((this._logLevel >= 3 || this._logLevel <= -3) && console) {
+      if (console.info) {
+        console.info.apply(console, arguments)
+      } else if (console.log) {
+        console.log.apply(console, arguments)
+      }
     }
   }
 
@@ -167,8 +177,12 @@ export class Travelpen {
       this._logCallback.apply(this, [4, ...Array.prototype.slice.call(arguments)])
     }
 
-    if ((this._logLevel >= 2 || this._logLevel <= -4) && console && console.warn) {
-      console.warn.apply(console, arguments)
+    if ((this._logLevel >= 2 || this._logLevel <= -4) && console) {
+      if (console.warn) {
+        console.warn.apply(console, arguments)
+      } else if (console.log) {
+        console.log.apply(console, arguments)
+      }
     }
   }
 
@@ -179,8 +193,12 @@ export class Travelpen {
       this._logCallback.apply(this, [5, ...Array.prototype.slice.call(arguments)])
     }
 
-    if ((this._logLevel >= 1 || this._logLevel <= -5) && console && console.error) {
-      console.error.apply(console, arguments)
+    if ((this._logLevel >= 1 || this._logLevel <= -5) && console) {
+      if (console.error) {
+        console.error.apply(console, arguments)
+      } else if (console.log) {
+        console.log.apply(console, arguments)
+      }
     }
   }
 }
