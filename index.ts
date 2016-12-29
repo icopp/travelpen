@@ -203,6 +203,6 @@ export class Travelpen {
   }
 }
 
-export const travelpen = new Travelpen()
+let travelpen = new Travelpen()
 
 export default travelpen
